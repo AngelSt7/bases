@@ -1,0 +1,21 @@
+<div class="container mt-5 text-center">
+  <div class="card shadow-sm p-4 mx-auto" style="max-width: 400px;">
+    <p class="fs-4 fw-semibold text-uppercase text-secondary mb-4">
+      Estado actual: <span class="text-primary fs-3">{{ counter() }}</span>
+    </p>
+
+    <div class="d-flex justify-content-center gap-3">
+      <button (click)="increseBy(1)" class="btn btn-success">
+        Aumentar
+      </button>
+
+      <button (click)="increseBy(-1)" class="btn btn-danger">
+        Disminuir
+      </button>
+
+      <button (click)="reset()" class="btn btn-secondary">
+        Resetear
+      </button>
+    </div>
+  </div>
+</div>

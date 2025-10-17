@@ -1,0 +1,9 @@
+<nav>
+    @for (route of routes; track $index) {
+    <a 
+        [routerLink]="route.path" 
+        routerLinkActive="active" 
+        [routerLinkActiveOptions]="{exact: true}"
+        >{{route.label}}</a>
+    }
+</nav>

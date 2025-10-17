@@ -1,0 +1,11 @@
+<h3>Listado</h3>
+<ol class="list-group list-group-numbered">
+    @for (character of characters(); track character.id) {
+    @if (character.power > 1000) {
+    <li class="list-group-item">
+        <span>{{character.name}}</span>
+        <strong [ngClass]="classNamesPower()()[character.id]"> ({{character.power}})</strong>
+    </li>
+    }
+    }
+</ol>
