@@ -37,14 +37,6 @@ export class DragonballComponent {
     }
   }
 
-  lenghtCharacters = () => {
-    return this.characters().length
-  }
-
-  prueba = () => {
-    return 3
-  }
-
   classNamesPower = computed(() => {
     const classNames: Record<number, any> = {};
     for (const character of this.characters()) {
