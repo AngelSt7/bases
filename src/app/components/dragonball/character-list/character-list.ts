@@ -5,6 +5,7 @@ import { NgClass } from '@angular/common';
 interface Props {
   characters: Character[]
   classNamesPower: Signal<Record<number, any>>
+  label: string
 }
 
 @Component({
@@ -17,5 +18,6 @@ export class CharacterListComponent {
 
   characters = input.required<Props['characters']>();
   classNamesPower = input.required<Props['classNamesPower']>();
+  label = input<Props['label']>();
 
 }

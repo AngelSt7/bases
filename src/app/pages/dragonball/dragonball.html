@@ -3,20 +3,10 @@
 
 <section class="row">
     <div class="col-12 col-sm-6 mb-4">
-        <h3>Agregar:</h3>
-        <p>Nombre: {{getAttribute('name')}}</p>
-
-        <input type="text" class="form-control mb-2" placeholder="Nombre" [value]="getAttribute('name')"
-            (input)="setData('name', txtName.value)" #txtName />
-
-        <input type="number" class="form-control mb-2" placeholder="Poder" [value]="getAttribute('power')"
-            (input)="setData('power', txtPower.value)" #txtPower />
-
-        <button (click)="addCharacter()" class="btn btn-primary w-100">Agregar</button>
+        <app-character-add (newCharacter)="addCharacter($event)" />
     </div>
 
     <div class="col-12 col-sm-6">
-        <app-character-list [characters]="characters()" [classNamesPower]="classNamesPower" />
-
+        <app-character-list [characters]="characters()" [classNamesPower]="classNamesPower" label="Personajes" />
     </div>
 </section>

@@ -1,11 +1,11 @@
-import { NgClass } from '@angular/common';
 import { Component, computed, signal } from '@angular/core';
 import { CharacterListComponent } from "../../components/dragonball/character-list/character-list";
 import { Character, CreateCharacter } from '../../components/interfaces/character.interface';
+import { CharacterAddComponent } from '../../components/dragonball/character-add/character-add';
 
 @Component({
   selector: 'app-dragonball',
-  imports: [NgClass, CharacterListComponent],
+  imports: [CharacterListComponent, CharacterAddComponent],
   templateUrl: './dragonball.html',
   styleUrl: './dragonball.css'
 })
@@ -19,22 +19,8 @@ export class DragonballComponent {
     { id: 4, name: "Yamcha", power: 500 },
   ])
 
-  data = signal<Partial<CreateCharacter>>({});
-
-  getAttribute = (key: keyof CreateCharacter) => this.data()?.[key] ?? '';
-
-  setData = (key: keyof CreateCharacter, value: string | number) => {
-    this.data.update(current => ({
-      ...current,
-      [key]: value
-    }));
-  };
-
-  addCharacter = () => {
-    const data = this.data()
-    if (Object.values(this.data()).some(v => v !== null && v !== undefined)) {
-      this.characters.update(list => [...list, { id: this.characters().length + 1, ...data } as Character])
-    }
+  addCharacter = (character: Character) => {
+    this.characters.update(list => [...list, character])
   }
 
   classNamesPower = computed(() => {
